@@ -128,7 +128,7 @@
 
 
 
-        if(!empty($_POST['dob']))
+        if(!isset($_POST['dob']))
         {
             $dobb = $_POST['dob'];
             //echo $_POST['dob'];

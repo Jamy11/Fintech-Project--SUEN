@@ -26,9 +26,20 @@ include_once('header.php');
                 </tr>
                 
                 <tr>
+                    <td colspan="2">
+                        <fieldset>
+                            <legend><b>User</b></legend>
+                            <input type="radio" name="user" id="" value="Agent">Agent
+                            <input type="radio" name="user" id="" value="Client">Client
+                        </fieldset>
+                    </td>
+                </tr>
+
+                <tr>
                     <hr>
                     <td colspan="2"> <input type="checkbox" name="logche" id=""> Remember me</td>
                 </tr>
+
                 <tr>
                     <td colspan="2">
                         <input type="submit" name="submit" value='Submit'>
