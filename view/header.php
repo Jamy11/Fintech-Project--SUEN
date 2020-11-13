@@ -13,7 +13,7 @@
                 <a href="../index.html">Home</a>|
                 <a href="login.php">Login</a>|
                 <a href="registration.php">Registration</a>|
-                <a href="registration.php">Support</a>
+                <a href="support.php">Support</a>
             </td>
         </tr>
     </table>

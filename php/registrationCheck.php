@@ -165,8 +165,10 @@
             
                 fclose($agent);
 
-                header('location: ../view/agent.html');
+                header('location: ../view/login.php');
             }
+
+
             elseif($user == 'Client')
             {
                 $client = fopen("client.txt","a"); 
@@ -176,8 +178,10 @@
             
                 fclose($client);
 
-                header('location: ../view/client.html');
+                header('location: ../view/login.php');
             }
+
+
             // $_SESSION['name'] = $name;
             // $_SESSION['email'] = $email;
             // $_SESSION['un'] = $j;
@@ -187,6 +191,8 @@
 
             //header('location: login.php');
         }
+
+
         else
         {
             header('location: ../view/registration.php?msg=wrong_data');

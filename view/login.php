@@ -1,3 +1,9 @@
+<?php
+include_once('header.php');
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +14,7 @@
 <body>
     <h1 align='center'>Log-In</h1>
     <center>
-        <form method='POST' action="logincheck.php">
+        <form method='POST' action="../php/logincheck.php">
             <table align="center">
                 <tr>
                     <td>User-Name:</td>
@@ -35,3 +41,25 @@
     </center>
 </body>
 </html>
+
+<center>
+<?php
+    if(isset($_GET['msg']))
+    {
+        if($_GET['msg'] == 'invalid_user')
+        {
+            echo '<h1>Invalid User<h1>';
+        } 
+        elseif($_GET['msg'] == 'Fill')
+        {
+            echo '<h1>Fill the form<h1>';
+        } 
+    }
+?>
+</center>
+
+
+<?php
+
+    include_once('footer.php');
+?>
