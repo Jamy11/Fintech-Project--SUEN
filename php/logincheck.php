@@ -1,5 +1,5 @@
 <?php
-
+    
     session_start();
     if(isset($_POST['submit']))
     {
@@ -30,6 +30,7 @@
                         exit();
                         }
                     }
+                    
                     header('location: ../view/login.php?msg=wrong_user');
                 }
 
