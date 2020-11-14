@@ -65,6 +65,14 @@ include_once('header.php');
         {
             echo '<h1>Fill the form<h1>';
         } 
+        elseif($_GET['msg'] == 'wrong_user')
+        {
+            echo '<h1>Wrong user<h1>';
+        }
+        else
+        {
+            echo "Select Type";
+        }
     }
 ?>
 </center>

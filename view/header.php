@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(isset($_COOKIE['active']) || isset($_SESSION['active']))
+    {
+
+    ?>
+    
+
 
 
 
@@ -18,3 +26,7 @@
         </tr>
     </table>
     <hr>
+<?php
+
+    }
+?>
