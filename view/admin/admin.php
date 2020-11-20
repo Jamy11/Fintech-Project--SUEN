@@ -3,9 +3,14 @@
   {
       session_start();
   }
-    if(!isset($_SESSION['login']))
+    if(isset($_SESSION['login']) || isset($_COOKIE['login']))
+    {
+
+    }
+    else
     {
         header('location: adminlogin.php');
+        exit;
     }
 ?>
 <!DOCTYPE html>

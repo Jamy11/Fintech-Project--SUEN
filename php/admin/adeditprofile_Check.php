@@ -127,23 +127,79 @@
             // $admin = fopen("admin.txt","a");
             // $add = $name.' '.$email.' '.$un.' '.$password.' '.$_SESSION['adGen'].' '.$_SESSION['adDate'].' '.$user;
 
+            $alldata = array();
 
-            $content = file_get_contents('admin.txt');
-            $content = str_replace($_SESSION['adUsername'],$add,$content);
-            file_put_contents('admin.txt', $content);
+            $myfile = fopen("admin.txt","r");
+            
+
+            while($data = fgets($myfile))
+            {
+
+                $alldata[] = $data;
+                // $checkData = explode(" ",$data);
+                
+                // if($un == $checkData[2])
+                // {
+                //     $_SESSION['reg_msg']='User Name exists.';
+                //     header("location: ../../view/admin/admin_add.php");
+                //     exit;
+                // }
+                
+            }
+            // print_r($alldata);
+            // echo '<br>';
+            for($i =0;$i<count($alldata);$i++)
+            {
+                $test = explode(" ",$alldata[$i]);
+
+                if($_SESSION['adUserame'] == $test[2])
+                {
+                    //print_r($alldata[$i]);
+                    $match = $i;
+
+                }
+            }
 
 
+            $add = $name.' '.$email.' '.$un.' '.$password.' '. $_SESSION['adGen'].' '.$_SESSION['adDate'].' '.$user;
+            
             $_SESSION['adName'] = $name;
             $_SESSION['adEmail'] = $email;
             $_SESSION['adUserame'] = $un;
             $_SESSION['adPas'] = $password;
 
+            $alldata[$match] = $add;
+
+            //print_r($alldata);
+
+            $admin = fopen("admin.txt", "w");
+
+            for($i =0;$i<count($alldata);$i++)
+            {
+                fwrite($admin, $alldata[$i]."\r\n");
+            }
+            fclose($admin);
+            echo 'done';
+            // fclose($myfile); 
+            // $_SESSION['reg_msg']='Registraion Complete';
+            // $admin = fopen("admin.txt","a");
+            // 
+            // fwrite($admin, $add. " \r\n");
+        
+            // fclose($admin);
+            // header("location: ../../view/admin/admin_add.php");
+            // exit();
+
+
+            
+            
             //fwrite($admin, $add. " \r\n");
         
             // fclose($admin);
-            $_SESSION['edi_msg']='Registraion Complete';
-            header("location: ../../view/admin/admin_edit.php");
-            exit();
+                        // echo 'comp';
+                        // $_SESSION['edi_msg']='Registraion Complete';
+            //header("location: ../../view/admin/admin_edit.php");
+                        //exit();
 
            
 
@@ -153,8 +209,9 @@
 
         else
         {
+            echo 'fill';
             $_SESSION['edi_msg']='Fill Up the Form';
-            header("location: ../../view/admin/admin_edit.php");
+            //header("location: ../../view/admin/admin_edit.php");
             exit();
         }
 
@@ -162,8 +219,8 @@
 
     else
     {
-        //$_SESSION['edi_msg']='Use Provided Link.';
-        header("location: ../../index.html");
+        $_SESSION['edi_msg']='Use Provided Link.';
+        //header("location: ../../index.html");
         exit;
     }
 

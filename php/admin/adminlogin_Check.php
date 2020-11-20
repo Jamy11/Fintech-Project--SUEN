@@ -23,9 +23,11 @@
                 {
                     setcookie('login', $_POST['adun'], time()+60*60*10,'/');
                 }
+                else
+                {
+                    $_SESSION['login'] = 'true';
+                }
 
-
-                $_SESSION['login'] = 'true';
                 $_SESSION['adName'] = $test[0];
                 $_SESSION['adEmail'] = $test[1];
                 $_SESSION['adUserame'] = $test[2];
