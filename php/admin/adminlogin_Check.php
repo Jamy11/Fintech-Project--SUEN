@@ -21,8 +21,7 @@
                 
                 if(isset($_POST['adche']))
                 {
-                    setcookie('uname', $_POST['adun'], time()+60*60*10,'/');
-                    setcookie('pass', $_POST['adp'], time()+60*60*10,'/');	
+                    setcookie('login', $_POST['adun'], time()+60*60*10,'/');
                 }
 
 

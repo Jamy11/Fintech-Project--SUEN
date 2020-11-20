@@ -81,26 +81,22 @@
 
 <?php
 
-    if(isset($_SESSION['reg_msg']))
+    if(isset($_SESSION['edi_msg']))
     {
-        if( $_SESSION['reg_msg'] == 'User Name exists.')
-        {
-            echo '<script language="javascript">alert("User Name exists.")</script>';
-        }
 
-        elseif($_SESSION['reg_msg'] == 'Registraion Complete')
+        if($_SESSION['edi_msg'] == 'Registraion Complete')
         {
             echo '<script language="javascript">alert("User information chnged.")</script>';
         }
 
-        elseif($_SESSION['reg_msg'] == 'Fill Up the Form')
+        elseif($_SESSION['edi_msg'] == 'Fill Up the Form')
         {
             echo '<script language="javascript">alert("Fill Up the Form.")</script>';
         }
 
 
     
-        unset($_SESSION['reg_msg']);
+        unset($_SESSION['edi_msg']);
     }
     
 

@@ -3,10 +3,9 @@
     session_start();
     session_destroy();
 
-    if(isset($_COOKIE['uname']) && isset($_COOKIE['pass']))
+    if(isset($_COOKIE['login']))
 	{
-		setcookie('uname', 'false', time()-1,'/');
-		setcookie('pass', 'false', time()-1,'/');	
+		setcookie('login', 'false', time()-1,'/');
 	}
 
     header('location: ../index.html');

@@ -141,7 +141,7 @@
             //fwrite($admin, $add. " \r\n");
         
             // fclose($admin);
-            $_SESSION['reg_msg']='Registraion Complete';
+            $_SESSION['edi_msg']='Registraion Complete';
             header("location: ../../view/admin/admin_edit.php");
             exit();
 
@@ -153,7 +153,7 @@
 
         else
         {
-            $_SESSION['reg_msg']='Fill Up the Form';
+            $_SESSION['edi_msg']='Fill Up the Form';
             header("location: ../../view/admin/admin_edit.php");
             exit();
         }
@@ -162,7 +162,7 @@
 
     else
     {
-        $_SESSION['reg_msg']='Use Provided Link.';
+        //$_SESSION['edi_msg']='Use Provided Link.';
         header("location: ../../index.html");
         exit;
     }
