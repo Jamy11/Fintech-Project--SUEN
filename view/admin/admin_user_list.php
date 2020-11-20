@@ -1,3 +1,7 @@
+<?php
+    include_once('../../php/admin/userList_Check.php')
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +34,11 @@
                 </ul>                
             </td>
             <td>
-                <h1 align="center">Welcome Admin <br/>
+            <h1>User List</h1>
+                <?php checkUser()?>
 							
 							
-				</h1>
+				</h3>
             </td>
         </tr>
     </table>

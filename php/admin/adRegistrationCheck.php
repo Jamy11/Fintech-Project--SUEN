@@ -191,7 +191,7 @@
     else
     {
         $_SESSION['reg_msg']='Use Provided Link.';
-        header("location: ../../view/admin/admin_add.php");
+        header("location: ../../index.html");
         exit;
     }
 
