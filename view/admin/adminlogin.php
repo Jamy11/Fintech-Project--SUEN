@@ -19,7 +19,7 @@
             <table align="center">
                 <tr>
                     <td>User-Name:</td>
-                    <td><input type="text" name="adun" id="aduname"></td>
+                    <td><input type="text" name="adun" id="aduname" ></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
@@ -52,7 +52,7 @@ if(isset($_COOKIE['uname']) && isset($_COOKIE['pass']))
 			$pass=$_COOKIE['pass'];
 			echo "<script>
 				document.getElementById('aduname').value = '$uname';
-				document.getElementById('pass').value = '$pass'; 
+				document.getElementById('adpass').value = '$pass'; 
 			</script>";
 		}
 ?>

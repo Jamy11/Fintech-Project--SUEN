@@ -32,7 +32,7 @@
             <td>
             <h1 align='center'>Registration</h1>
     <center>
-        <form method="POST" action="../../php/admin/adRegistrationCheck.php">
+        <form method="POST" action="../../php/admin/adeditprofile_Check.php">
                 <table>
                     <tr>
                         <td>Name</td>
@@ -78,3 +78,30 @@
     </table>
 </body>
 </html>
+
+<?php
+
+    if(isset($_SESSION['reg_msg']))
+    {
+        if( $_SESSION['reg_msg'] == 'User Name exists.')
+        {
+            echo '<script language="javascript">alert("User Name exists.")</script>';
+        }
+
+        elseif($_SESSION['reg_msg'] == 'Registraion Complete')
+        {
+            echo '<script language="javascript">alert("User information chnged.")</script>';
+        }
+
+        elseif($_SESSION['reg_msg'] == 'Fill Up the Form')
+        {
+            echo '<script language="javascript">alert("Fill Up the Form.")</script>';
+        }
+
+
+    
+        unset($_SESSION['reg_msg']);
+    }
+    
+
+?>

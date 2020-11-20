@@ -40,7 +40,7 @@
                 </ul>                
             </td>
             <td>
-                <h1 align="center">Welcome Admin <br/>
+                <h1 align="center">Welcome <?php echo $_SESSION['adName'] ?> <br/>
 							
 							
 				</h1>

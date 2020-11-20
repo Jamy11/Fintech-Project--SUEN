@@ -129,6 +129,3 @@
 
 ?>
 
-<center>
-
-</center>
