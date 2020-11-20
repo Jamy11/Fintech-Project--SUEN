@@ -12,15 +12,15 @@
 <table width='100%'>
     <tr >
         <td>
-            <img src="../asset/logo.png" alt="">
+            <img src="../../asset/logo.png" alt="">
         </td>
         <td align="right">
             Logged in as 
-            <a href="profile_dash.php"><?php 
+            <a href=""><?php 
             
             echo $_SESSION['name'];
             ?></a>
-            | <a href="logout.php">Log-Out</a>|
+            | <a href="../logout.php">Log-Out</a>|
         </td>
     </tr>
 </table>
@@ -38,10 +38,10 @@
                 <img src="../asset/logo.png" alt="">
             </td>
             <td align="right">
-                <a href="../index.html">Home</a>|
-                <a href="login.php">Login</a>|
-                <a href="registration.php">Registration</a>|
-                <a href="support.php">Support</a>
+                <a href="../../index.html">Home</a>|
+                <a href="../login.php">Login</a>|
+                <a href="../registration.php">Registration</a>|
+                <a href="../support.php">Support</a>
             </td>
         </tr>
     </table>

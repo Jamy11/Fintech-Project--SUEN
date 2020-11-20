@@ -1,4 +1,9 @@
-
+<?php
+      if (session_status() == PHP_SESSION_NONE) 
+      {
+          session_start();
+      }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,15 +15,15 @@
 <body>
     <h1 align='center'>Admin Log In</h1>
     <center>
-        <form method='POST' action="../php/logincheck.php">
+        <form method='POST' action="../../php/admin/adminlogin_Check.php">
             <table align="center">
                 <tr>
                     <td>User-Name:</td>
-                    <td><input type="text" name="adun" id=""></td>
+                    <td><input type="text" name="adun" id="aduname"></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input type="password" name="adgp" id=""></td>
+                    <td><input type="password" name="adp" id="adpass"></td>
                 </tr>
                 
 
@@ -40,26 +45,35 @@
 </body>
 </html>
 
+<?php
+if(isset($_COOKIE['uname']) && isset($_COOKIE['pass']))
+		{
+			$uname=$_COOKIE['uname'];
+			$pass=$_COOKIE['pass'];
+			echo "<script>
+				document.getElementById('aduname').value = '$uname';
+				document.getElementById('pass').value = '$pass'; 
+			</script>";
+		}
+?>
+
 <center>
 <?php
-    if(isset($_GET['msg']))
+
+    if(isset($_SESSION['login_er']))
     {
-        if($_GET['msg'] == 'invalid_user')
+        if( $_SESSION['login_er'] == 'nodata')
         {
-            echo '<h1>Invalid User<h1>';
-        } 
-        elseif($_GET['msg'] == 'Fill')
-        {
-            echo '<h1>Fill the form<h1>';
-        } 
-        elseif($_GET['msg'] == 'wrong_user')
-        {
-            echo '<h1>Wrong user<h1>';
+            echo '<script language="javascript">alert("User does not exists.")</script>';
         }
-        else
+
+        elseif($_SESSION['login_er'] == 'fill')
         {
-            echo "Select Type";
+            echo '<script language="javascript">alert("Fill the from.")</script>';
         }
+    
+        unset($_SESSION['login_er']);
     }
+    
+
 ?>
-</center>

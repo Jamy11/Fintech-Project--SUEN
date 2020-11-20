@@ -3,7 +3,11 @@
     session_start();
     session_destroy();
 
-    setcookie('active','true',time()-1000,'/');
+    if(isset($_COOKIE['uname']) && isset($_COOKIE['pass']))
+	{
+		setcookie('uname', $_COOKIE['uname'], time()-1);
+		setcookie('pass', $_COOKIE['pass'], time()-1);	
+	}
 
     header('location: ../index.html');
 ?>

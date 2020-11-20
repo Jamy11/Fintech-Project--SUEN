@@ -26,11 +26,50 @@
                     <li><a href="admin_contact_user.php">Contact Users</a></li>
                    <!-- <li><a href="profile_change_pic.php">Change Profile Picture</a></li>-->
                    <!-- <li><a href="profile_change_pas.php">Change Password</a></li>-->
-                    <li><a href="logout.php">Log Out</a></li>
+                    <li><a href="../logout.php">Log Out</a></li>
                 </ul>                
             </td>
             <td>
-                <h1 align="center">Welcome Admin <br/>
+            <h1 align='center'>Registration</h1>
+    <center>
+        <form method="POST" action="../../php/admin/adRegistrationCheck.php">
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" name="name" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" name="email"></td>
+                    </tr>
+                    <tr>
+                        <td>User Name</td>
+                        <td><input type="text" name='user_name'></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Confirm password</td>
+                        <td><input type="password" name="con_pas" id=""></td>
+                    </tr>
+                    
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" name="submit" id="">
+                            <button type="reset">Reset</button>
+                        </td>
+
+                    </tr>
+                    
+                </table>
+        </form>
+							
+							
+				</h1>
 							
 							
 				</h1>

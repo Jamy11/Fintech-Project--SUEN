@@ -1,3 +1,13 @@
+<?php
+  if (session_status() == PHP_SESSION_NONE) 
+  {
+      session_start();
+  }
+    if(!isset($_SESSION['login']))
+    {
+        header('location: adminlogin.php');
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +36,7 @@
                     <li><a href="admin_contact_user.php">Contact Users</a></li>
                    <!-- <li><a href="profile_change_pic.php">Change Profile Picture</a></li>-->
                    <!-- <li><a href="profile_change_pas.php">Change Password</a></li>-->
-                    <li><a href="logout.php">Log Out</a></li>
+                    <li><a href="../logout.php">Log Out</a></li>
                 </ul>                
             </td>
             <td>
