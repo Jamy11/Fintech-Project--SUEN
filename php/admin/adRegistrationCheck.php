@@ -190,7 +190,7 @@
 
     else
     {
-        $_SESSION['reg_msg']='Use Provided Link.';
+        //$_SESSION['reg_msg']='Use Provided Link.';
         header("location: ../../index.html");
         exit;
     }

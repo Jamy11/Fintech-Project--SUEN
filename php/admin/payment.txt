@@ -1,0 +1,7 @@
+mou to abir 100000
+abir to mou 1000
+mou to foysal 5000
+foysal tp abir 100000
+anika to abir 10000
+anika to minhaz 12400
+minhaz to abir 123456

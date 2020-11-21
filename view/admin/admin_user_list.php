@@ -1,8 +1,11 @@
 <?php
-  if (session_status() == PHP_SESSION_NONE) 
-  {
-      session_start();
-  }
+    if (session_status() == PHP_SESSION_NONE) 
+    {
+        session_start();
+    }
+
+    define('MyConst', TRUE);
+    
     if(isset($_SESSION['login']) || isset($_COOKIE['login']))
     {
 

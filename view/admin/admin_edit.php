@@ -48,7 +48,7 @@
                 </ul>                
             </td>
             <td>
-            <h1 align='center'>Registration</h1>
+            <h1 align='center'>Edit Profile</h1>
     <center>
         <form method="POST" action="../../php/admin/adeditprofile_Check.php">
                 <table>

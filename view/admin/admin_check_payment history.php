@@ -48,7 +48,56 @@
                 </ul>                
             </td>
             <td>
-                <h1 align="center">Welcome Admin <br/>
+                <h3 align="center">Payment History </h3>
+
+
+                <center>
+                    <form method="POST" action="">
+                            <table>
+                                <tr>
+                                    <td>User Name</td>
+                                    <td><input type="text" name="search" id=""></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="submit" name="submit" id="" value='Search User History'>
+                                        <button type="reset">Reset</button>
+                                    </td>
+                                    <?php
+                                        if(isset($_POST['submit']))
+                                        {
+                                            $myfile = fopen('C:\xampp\htdocs\SUEN\php\admin\payment.txt', 'r');
+
+                                            echo '<table border=2px>';
+                                            while($data = fgets($myfile))
+                                            {  
+                                                $checkData = explode(" ",$data);
+                                                if($_POST['search'] == $checkData[0] || $_POST['search'] == $checkData[2])
+                                                {
+                                                    echo '<tr>';
+                                                    for($i=0;$i<4;$i++)
+                                                    {
+                                                        echo '<td>'.$checkData[$i] .'</td>';
+                                                        
+                                                    }
+                                                    echo '</tr>';
+                                                }
+                                                
+                                            }
+                                            echo '</table>';
+                                        }
+                                        else
+                                        {
+                                        }
+                                    ?>
+    
+
+
+                                </tr>
+                                
+                            </table>
+                    </form>
+                </center>
 							
 							
 				</h1>

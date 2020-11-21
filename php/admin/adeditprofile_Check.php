@@ -134,8 +134,10 @@
 
             while($data = fgets($myfile))
             {
-
-                $alldata[] = $data;
+                if($data != '' )
+                {
+                    $alldata[] = $data;
+                }            
                 // $checkData = explode(" ",$data);
                 
                 // if($un == $checkData[2])
@@ -219,8 +221,8 @@
 
     else
     {
-        $_SESSION['edi_msg']='Use Provided Link.';
-        //header("location: ../../index.html");
+      
+        header("location: ../../index.html");
         exit;
     }
 

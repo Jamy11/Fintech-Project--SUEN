@@ -1,5 +1,12 @@
 <?php
-
+ 
+    if(!defined('MyConst')) 
+    {
+        echo '<h1>';
+       die('Direct access not permitted');
+       echo '</h1>';
+    }
+   
     function checkUser()
     {
         $myfile = fopen('C:\xampp\htdocs\SUEN\php\user.txt', 'r');
