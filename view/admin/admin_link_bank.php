@@ -48,7 +48,7 @@
                 </ul>                
             </td>
             <td>
-                <h1 align="center">Welcome Admin <br/>
+                <h1 align="center">link bank<br/>
 							
 							
 				</h1>

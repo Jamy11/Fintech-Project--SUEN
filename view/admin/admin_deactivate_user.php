@@ -47,7 +47,7 @@
                 </ul>                
             </td>
             <td>
-                <h1 align="center">Welcome Admin <br/>
+                <h1 align="center">Deactivate User<br/>
 							
 							
 				</h1>
