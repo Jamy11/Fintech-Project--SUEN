@@ -30,7 +30,7 @@
 
                 $_SESSION['adName'] = $test[0];
                 $_SESSION['adEmail'] = $test[1];
-                $_SESSION['adUserame'] = $test[2];
+                $_SESSION['adUsername'] = $test[2];
                 $_SESSION['adPas'] = $test[3];
                 $_SESSION['adGen'] = $test[4];
                 $_SESSION['adDate'] = $test[5];

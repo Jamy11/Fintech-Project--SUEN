@@ -1,4 +1,20 @@
 <?php
+  if (session_status() == PHP_SESSION_NONE) 
+  {
+      session_start();
+  }
+    if(isset($_SESSION['login']) || isset($_COOKIE['login']))
+    {
+
+    }
+    else
+    {
+        header('location: adminlogin.php');
+        exit;
+    }
+?>
+
+<?php
     include_once('../../php/admin/userList_Check.php')
 ?>
 

@@ -46,8 +46,11 @@
             </td>
             <td>
                 <h1 align="center">Welcome <?php echo $_SESSION['adName'] ?> <br/>
-							
-							
+                <h2>User name: <?php echo $_SESSION['adUsername'] ?></h2>
+				<h2>Email: <?php echo $_SESSION['adEmail'] ?></h2>
+                <h2>Gender: <?php echo $_SESSION['adGen'] ?></h2>
+				<h2>Date: <?php echo $_SESSION['adDate'] ?></h2>
+                <h2>User type: <?php echo $_SESSION['adType'] ?></h2>
 				</h1>
             </td>
         </tr>

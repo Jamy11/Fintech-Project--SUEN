@@ -1,3 +1,4 @@
 jamas jamy@fas.com jamy 1234 Male 2020-11-16 Admin 
 fasfa asfas@gmasi.com asfa 1234 Male 2020-11-16 Admin 
 aabir abir@gfas.com abir 1234 Male 2020-11-23 Admin 
+foysal foysal@gmail.com foysal 1 Male 2020-11-04 Admin 
