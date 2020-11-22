@@ -4,7 +4,7 @@
         session_start();
     }
 
-    define('MyConst', TRUE);
+    define('MyAdmin', TRUE);
     
     if(isset($_SESSION['login']) || isset($_COOKIE['login']))
     {
@@ -18,7 +18,7 @@
 ?>
 
 <?php
-    //include_once('../../php/admin/userList_Check.php');
+    include_once('../../php/admin/ad_adminList_Check.php');
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@
             </td>
             <td>
                 <h1>Admin List</h1>
-                <?php ?>
+                <?php checkAdmin()?>
 							
 							
 				</h3>
