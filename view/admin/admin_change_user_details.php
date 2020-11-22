@@ -5,7 +5,7 @@
   }
     if(isset($_SESSION['login']) || isset($_COOKIE['login']))
     {
-
+        include_once('admin_header.php');
     }
     else
     {

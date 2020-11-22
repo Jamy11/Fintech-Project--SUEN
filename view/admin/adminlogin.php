@@ -8,6 +8,7 @@
           header('location: admin.php');
           exit;
       }
+      include_once('admin_header.php');
 ?>
 
 <!DOCTYPE html>
