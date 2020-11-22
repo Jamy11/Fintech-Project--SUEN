@@ -83,3 +83,7 @@ if(isset($_COOKIE['uname']) && isset($_COOKIE['pass']))
     
 
 ?>
+
+<?php
+    include_once('../footer.php');
+?>
