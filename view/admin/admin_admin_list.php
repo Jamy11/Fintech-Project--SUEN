@@ -1,8 +1,11 @@
 <?php
-  if (session_status() == PHP_SESSION_NONE) 
-  {
-      session_start();
-  }
+    if (session_status() == PHP_SESSION_NONE) 
+    {
+        session_start();
+    }
+
+    define('MyConst', TRUE);
+    
     if(isset($_SESSION['login']) || isset($_COOKIE['login']))
     {
         include_once('admin_header.php');
@@ -14,6 +17,9 @@
     }
 ?>
 
+<?php
+    include_once('../../php/admin/userList_Check.php')
+?>
 
 <!DOCTYPE html>
 <html>
@@ -46,13 +52,14 @@
                    <!-- <li><a href="profile_change_pic.php">Change Profile Picture</a></li>-->
                    <!-- <li><a href="profile_change_pas.php">Change Password</a></li>-->
                     <li><a href="../logout.php">Log Out</a></li>
-                </ul>                              
+                </ul>              
             </td>
             <td>
-                <h1 align="center">Change User Details <br/>
+                <h1>Admin List</h1>
+                <?php ?>
 							
 							
-				</h1>
+				</h3>
             </td>
         </tr>
     </table>
