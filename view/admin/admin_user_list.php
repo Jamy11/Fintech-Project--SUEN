@@ -4,7 +4,7 @@
         session_start();
     }
 
-    define('MyConst', TRUE);
+    define('MyUser', TRUE);
     
     if(isset($_SESSION['login']) || isset($_COOKIE['login']))
     {

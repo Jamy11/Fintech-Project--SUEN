@@ -1,6 +1,6 @@
 <?php
  
-    if(!defined('MyConst')) 
+    if(!defined('MyUser')) 
     {
         echo '<h1>';
        die('Direct access not permitted');
