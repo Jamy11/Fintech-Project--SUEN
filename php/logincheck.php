@@ -1,151 +1,71 @@
 <?php
-    
-    session_start();
+
+
+    if (session_status() == PHP_SESSION_NONE) 
+    {
+        session_start();
+    }
+
+
     if(isset($_POST['submit']))
     {
-        if(isset($_POST['logche']))
+        
+        if( !empty($_POST['logun']) && !empty($_POST['logp']))
         {
-            if(!empty($_POST['logun']) && !empty($_POST['logp']))
+            $myfile = fopen('user.txt', 'r');
+
+            while($data = fgets($myfile))
             {
-                // agent
-                if($_POST['user'] == 'Agent')
-                {
-                    $myfile = fopen('agent.txt', 'r');
-                    while($data = fgets($myfile))
+                $test = explode(" ",$data);
+               
+               if($_POST['logun'] == $test[2] && $_POST['logp'] == $test[3] )
+               {
+                
+                    if(isset($_POST['logche']))
                     {
-                        $test = explode(" ",$data);
-                       
-                       if($_POST['logun'] == $test[2] && $_POST['logp'] == $test[3] )
-                       {
-                        setcookie('active','true',time()+3600,'/');
-                        $_SESSION['name'] = $test[0];
-                        $_SESSION['email'] = $test[1];
-                        $_SESSION['username'] = $test[2];
-                        $_SESSION['password'] = $test[3];
-                        $_SESSION['gender'] = $test[4];
-                        $_SESSION['dob'] = $test[5];
-                        $_SESSION['accType'] = $test[6];
-
-                        header('location: ../view/agent.php');
-                        exit();
-                        }
+                        setcookie('ulogin', $_POST['logun'], time()+60*60*10,'/');
                     }
-                    
-                    header('location: ../view/login.php?msg=wrong_user');
-                }
-
-
-                // client
-                elseif($_POST['user'] == 'Client')
-                {
-                    $myfile = fopen('client.txt', 'r');
-                    while($data = fgets($myfile))
+                    else
                     {
-                        $test = explode(" ",$data);
-                       
-                       if($_POST['logun'] == $test[2] && $_POST['logp'] == $test[3] )
-                       {
-                        setcookie('active','true',time()+3600,'/');
-                        $_SESSION['name'] = $test[0];
-                        $_SESSION['email'] = $test[1];
-                        $_SESSION['username'] = $test[2];
-                        $_SESSION['password'] = $test[3];
-                        $_SESSION['gender'] = $test[4];
-                        $_SESSION['dob'] = $test[5];
-                        $_SESSION['accType'] = $test[6];
-
-                        header('location: ../view/client.php');
-                        exit();
-                        }
+                        $_SESSION['ulogin'] = 'true';
                     }
-                    header('location: ../view/login.php?msg=wrong_user');
-                }
 
-                else
-                {
-                    header('location: ../view/login.php?msg=type');
-                }
+                    $_SESSION['uName'] = $test[0];
+                    $_SESSION['uEmail'] = $test[1];
+                    $_SESSION['uUsername'] = $test[2];
+                    $_SESSION['uPas'] = $test[3];
+                    $_SESSION['uGen'] = $test[4];
+                    $_SESSION['uDate'] = $test[5];
+                    $_SESSION['uType'] = $test[6];
 
+                    if($test[6]=='Client')
+                    {
+                        header("location: ../view/client.php");
+                        //header("location: ../view/agent.php");
+                        exit;
+                    }
+                    else
+                    {
+                        echo 'agent';
+                        header("location: ../view/agent.php");
+                        exit;
+                    }
+
+               
+               }
+               echo 'No data';
+               exit;
             }
 
-
-            else
-            {
-                header('location: ../view/login.php?msg=Fill');
-            }
+        header("location: ../index.html");
+        exit;
         }
-        
-        
-        // Session login
         else
         {
-            if(!empty($_POST['logun']) && !empty($_POST['logp']))
-            {
-                // agent
-                if($_POST['user'] == 'Agent')
-                {
-                    $myfile = fopen('agent.txt', 'r');
-                    while($data = fgets($myfile))
-                    {
-                        $test = explode(" ",$data);
-                       
-                       if($_POST['logun'] == $test[2] && $_POST['logp'] == $test[3] )
-                       {
-                        $_SESSION['active']= 'true';
-                        $_SESSION['name'] = $test[0];
-                        $_SESSION['email'] = $test[1];
-                        $_SESSION['username'] = $test[2];
-                        $_SESSION['password'] = $test[3];
-                        $_SESSION['gender'] = $test[4];
-                        $_SESSION['dob'] = $test[5];
-                        $_SESSION['accType'] = $test[6];
-
-                        header('location: ../view/agent.php');
-                        exit();
-                        }
-                    }
-                    header('location: ../view/login.php?msg=wrong_user');
-                }
-
-
-                // client
-                elseif($_POST['user'] == 'Client')
-                {
-                    $myfile = fopen('client.txt', 'r');
-                    while($data = fgets($myfile))
-                    {
-                        $test = explode(" ",$data);
-                       
-                       if($_POST['logun'] == $test[2] && $_POST['logp'] == $test[3] )
-                       {
-                        $_SESSION['active']= 'true';
-                        $_SESSION['name'] = $test[0];
-                        $_SESSION['email'] = $test[1];
-                        $_SESSION['username'] = $test[2];
-                        $_SESSION['password'] = $test[3];
-                        $_SESSION['gender'] = $test[4];
-                        $_SESSION['dob'] = $test[5];
-                        $_SESSION['accType'] = $test[6];
-
-                        header('location: ../view/client.php');
-                        exit();
-                        }
-                    }
-                    header('location: ../view/login.php?msg=wrong_user');
-                }
-                else
-                {
-                    header('location: ../view/login.php?msg=type');
-                }
-
-            }
-
-
-            else
-            {
-                header('location: ../view/login.php?msg=Fill');
-            }
+            header("location: ../index.html");
+            exit;
         }
+           
         
     }
     else

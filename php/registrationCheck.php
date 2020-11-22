@@ -128,7 +128,7 @@
 
 
 
-        if(!isset($_POST['dob']))
+        if(isset($_POST['dob']))
         {
             $dobb = $_POST['dob'];
             //echo $_POST['dob'];
@@ -156,31 +156,14 @@
         if($name!="" && $email!='' && strlen($un)==$count && $password!='' && $gen!='' && $dobb !='' && $user !='')
         {
 
-            if($user == 'Agent')
-            {
-                $agent = fopen("agent.txt","a"); 
+                $client = fopen("user.txt","a"); 
  
-                $add = $name.' '.$email.' '.$un.' '.$password.' '.$gen.' '.$dobb.' '.$user;
-                fwrite($agent, $add. " \r\n");
-            
-                fclose($agent);
-
-                header('location: ../view/login.php');
-            }
-
-
-            elseif($user == 'Client')
-            {
-                $client = fopen("client.txt","a"); 
- 
-                $add = $name.' '.$email.' '.$un.' '.$password.' '.$gen.' '.$dobb.' '.$user;
+                $add = $name.' '.$email.' '.$un.' '.$password.' '.$gen.' '.$dobb.' '.$user.' '.'deactivate'.' '.'unverified';
                 fwrite($client, $add. " \r\n");
             
                 fclose($client);
 
                 header('location: ../view/login.php');
-            }
-
 
             // $_SESSION['name'] = $name;
             // $_SESSION['email'] = $email;

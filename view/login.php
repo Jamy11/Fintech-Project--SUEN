@@ -25,15 +25,7 @@ include_once('header.php');
                     <td><input type="password" name="logp" id=""></td>
                 </tr>
                 
-                <tr>
-                    <td colspan="2">
-                        <fieldset>
-                            <legend><b>User</b></legend>
-                            <input type="radio" name="user" id="" value="Agent">Agent
-                            <input type="radio" name="user" id="" value="Client">Client
-                        </fieldset>
-                    </td>
-                </tr>
+
 
                 <tr>
                     <hr>

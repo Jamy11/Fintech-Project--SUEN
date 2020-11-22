@@ -1,5 +1,6 @@
-abir abir@afa.com abir 1234 Male 2020-12-02 Agent 
+abir abir@afa.com abir 1234 Male 2020-12-02 Client 
 minhaz fas@afa.com minhaz 123456 Male 2020-12-02 Agent 
 foysal foysal@hmd.com foysal 1234 Male 2020-11-17 Client 
 mou mou@fahj.com mou 12 Female 2020-11-23 Client 
 anika anika@fahj.com anika 123456 Female 2020-11-23 Client 
+safsded asas@gmail.com asdf 1 Male 2020-11-09 Client deactivate unverified 
