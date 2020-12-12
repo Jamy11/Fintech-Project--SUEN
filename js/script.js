@@ -25,7 +25,7 @@ btns.forEach((btn,i) =>{
 // Javascript for image slider autoplay navigation
 var repeat = function(activeClass){
     let active = document.getElementsByClassName('active');
-    let i = 1;
+    //let i = 1;
 
     var repeater = () => {
       setTimeout(function(){
@@ -33,18 +33,18 @@ var repeat = function(activeClass){
           activeSlide.classList.remove('active');
         });
 
-      slides[i].classList.add('active');
-      btns[i].classList.add('active');
-      i++;
+      slides[currentslide].classList.add('active');
+      btns[currentslide].classList.add('active');
+      currentslide++;
 
-      if(slides.length == i){
-        i = 0;
+      if(slides.length == currentslide){
+        currentslide = 0;
       }
-      if(i >= slides.length){
+      if(currentslide >= slides.length){
         return;
       }
       repeater();
-    }, 10000);
+    }, 5000);
     }
     repeater();
   }
