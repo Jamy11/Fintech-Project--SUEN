@@ -162,6 +162,10 @@ body{
   height: 50px;
   
 }
+.footer .text-footer h3{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
 
   /* footer end */
  @media (max-width: 991px){
@@ -196,11 +200,7 @@ body{
       width: 600px;
       height: 375px;
     }
-    .footer{
-      display: flex;
-      padding-top: 200px;
-      padding-right: 600px;
-    }
+   
   }
   
   @media (max-width: 768px){
