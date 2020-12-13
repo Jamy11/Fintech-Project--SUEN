@@ -91,7 +91,80 @@ body{
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   }
 
- @media (max-width: 820px){
+  /* mobile app start */
+
+  .mobile-app {
+    
+    
+    position: relative;
+    width: 1400px;
+    height: 500px;
+    margin: 10px;  
+    align-items: center;
+    justify-content: space-between;
+}
+.mobile-app .mobile {
+    
+  display: flex;
+  position: relative;
+   
+  margin-left: 100px;
+
+}
+
+.mobile-app .mobile .img-box{
+  width: 1400px;
+  height: 500px;
+  
+}
+.mobile-app .mobile .img-box img{
+    
+  height: 100%;
+  width: 100%;
+
+}
+
+.mobile-app .mobile .text{
+  margin-top: 100px;
+}
+
+.mobile-app .mobile .text h2{
+  color: black;
+  font-size: 45px;
+  text-transform: uppercase;
+  font-weight: 800px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.mobile-app .mobile .text p{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+  /* mobile app end */
+
+  /* footer start */
+
+.footer{
+  position: relative;
+  width: 1400px;
+  height: 50px;  
+}
+.footer .text-footer{
+  position: relative;
+  width: 1400px;
+  height: 50px;
+  
+}
+
+  /* footer end */
+ @media (max-width: 991px){
     .img-slider{
       width: 600px;
       height: 375px;
@@ -119,9 +192,18 @@ body{
       height: 10px;
       margin: 8px;
     }
+    .mobile-app {
+      width: 600px;
+      height: 375px;
+    }
+    .footer{
+      display: flex;
+      padding-top: 200px;
+      padding-right: 600px;
+    }
   }
   
-  @media (max-width: 620px){
+  @media (max-width: 768px){
     .img-slider{
       width: 400px;
       height: 250px;
@@ -149,6 +231,38 @@ body{
       height: 8px;
       margin: 6px;
     }
+
+    .mobile-app {
+      width: 400px;
+      height: 250px;
+      flex-direction: column;
+     }
+
+     .mobile-app .mobile{
+      flex-direction: column;
+      max-width: 350px;
+     }
+
+     .mobile-app .mobile .img-box{
+      max-width: 100%;
+     }
+     .mobile-app .mobile .text{
+      padding: 10px 20px;
+     }
+     .footer{
+      padding-top: 1000px;
+      padding-left: 65px;
+      width: 400px;
+      height: 50px;
+      
+    }
+    .footer .text-footer{
+      flex-direction: column;
+      max-width: 350px;
+      max-height: 100px;
+      
+    }
+
   }
   
   @media (max-width: 420px){
