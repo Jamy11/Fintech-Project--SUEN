@@ -1,3 +1,10 @@
+window.addEventListener("scroll",function(){
+  var header = document.querySelector("header");
+  header.classList.toggle("sticky",window.screenY > 0);
+})
+
+
+
 var slides = document.querySelectorAll('.slide');
 var btns = document.querySelectorAll('.btn');
 let currentslide = 1;
