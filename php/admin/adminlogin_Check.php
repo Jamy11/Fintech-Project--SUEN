@@ -1,55 +1,52 @@
 <?php
 
+    require_once('../../models/userService.php');
+
+
     if (session_status() == PHP_SESSION_NONE) 
     {
         session_start();
     }
 
+
     if(isset($_POST['submit']))
     {
-        
-        if( !empty($_POST['adun']) && !empty($_POST['adp']))
-        {
-            $myfile = fopen('admin.txt', 'r');
 
-            while($data = fgets($myfile))
+        $uname 	= $_POST['admin_uname'];
+		$pass 	= $_POST['admin_pass'];
+        
+        if( !empty($uname) && !empty($pass))
+        {
+            
+            $user = ['username'=> $uname, 'password'=>$pass];
+			$status = validateUser($user);
+
+            if($status)
             {
-                $test = explode(" ",$data);
-               
-               if($_POST['adun'] == $test[2] && $_POST['adp'] == $test[3] )
-               {
-                
-                if(isset($_POST['adche']))
+                $_SESSION['admin_username'] = $uname;
+
+                if(isset($_POST['admin_loginCheck']))
                 {
-                    setcookie('login', $_POST['adun'], time()+60*60*10,'/');
+                    setcookie('login', $_POST['admin_uname'], time()+60*60*10,'/');
                 }
                 else
                 {
                     $_SESSION['login'] = 'true';
                 }
-
-                $_SESSION['adName'] = $test[0];
-                $_SESSION['adEmail'] = $test[1];
-                $_SESSION['adUsername'] = $test[2];
-                $_SESSION['adPas'] = $test[3];
-                $_SESSION['adGen'] = $test[4];
-                $_SESSION['adDate'] = $test[5];
-                $_SESSION['adType'] = $test[6];
-
-                header("location: ../../view/admin/admin.php");
+				
+                header('location: ../../view/admin/admin.php');
                 exit;
-               }
             }
-
-        $_SESSION['login_er'] ="nodata";
-        header("location: ../../view/admin/adminlogin.php");
-        exit;
+            else
+            {
+                $_SESSION['login_er'] = 'nodata';
+				header('location: ../../view/admin/adminlogin.php');
+			}
+               
         }
         else
         {
-            $_SESSION['login_er'] ="fill";
-            header("location: ../../view/admin/adminlogin.php");
-            exit;
+            header();
         }
     }
     else

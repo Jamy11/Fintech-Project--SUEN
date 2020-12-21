@@ -21,49 +21,45 @@
 <body>
     <h1 align='center'>Admin Log In</h1>
     <center>
-        <form method='POST' action="../../php/admin/adminlogin_Check.php">
-            <table align="center">
-                <tr>
-                    <td>User-Name:</td>
-                    <td><input type="text" name="adun" id="aduname" ></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="adp" id="adpass"></td>
-                </tr>
+        <form method='POST' action="../../php/admin/adminlogin_Check.php" onsubmit='return loginValidation()'>
+
+            <fieldset style="width:300px">
+                <legend>Log In</legend>
                 
+                <table >
+                        <tr>
+                            <td>User-Name:</td>
+                            <td><input type="text" name="admin_uname" id="admin_uname" ></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><input type="password" name="admin_pass" id="admin_pass"></td>
+                        </tr>
+                        
 
-                <tr>
-                    <hr>
-                    <td colspan="2"> <input type="checkbox" name="adche" id=""> Remember me</td>
-                </tr>
+                        <tr>
+                            <hr>
+                            <td colspan="2"> <input type="checkbox" name="admin_loginCheck" id="admin_loginCheck"> Remember me</td>
+                        </tr>
 
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" name="submit" value='Submit'>
-                        <a href="forgetpassword.php">Forget Password</a>
+                        <tr>
+                            <td colspan="2">
+                                <input type="submit" name="submit" value='Submit'>
+                                <a href="forgetpassword.php">Forget Password</a>
 
-                    </td>
-                </tr>
-            </table>
+                            </td>
+                        </tr>
+                    </table>
+            
+            </fieldset>
+            
         </form>
     </center>
+    <script type='text/javascript' src="../../js/admin/a_script.js"></script>
 </body>
 </html>
 
-<?php
-if(isset($_COOKIE['uname']) && isset($_COOKIE['pass']))
-		{
-			$uname=$_COOKIE['uname'];
-			$pass=$_COOKIE['pass'];
-			echo "<script>
-				document.getElementById('aduname').value = '$uname';
-				document.getElementById('adpass').value = '$pass'; 
-			</script>";
-		}
-?>
 
-<center>
 <?php
 
     if(isset($_SESSION['login_er']))
