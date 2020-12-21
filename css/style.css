@@ -249,6 +249,10 @@ header ul li a{
       width: 600px;
       height: 375px;
     }
+    header{
+      max-width: 600px;
+      position: fixed;
+    }
    
   }
   
@@ -311,6 +315,12 @@ header ul li a{
       max-height: 100px;
       
     }
+    header{
+      max-width: 350px;
+      position: fixed;
+      justify-content: center;
+    }
+
 
   }
   
