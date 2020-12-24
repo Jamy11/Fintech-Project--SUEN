@@ -18,7 +18,7 @@
             Logged in as 
             <a href="profile_dash.php"><?php 
             
-            echo $_SESSION['name'];
+            echo $_SESSION['admin_username'];
             ?></a>
             | <a href="logout.php">Log-Out</a>|
         </td>

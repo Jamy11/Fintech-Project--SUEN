@@ -219,7 +219,7 @@ header ul li a{
   /* footer end */
  @media (max-width: 991px){
     .img-slider{
-      width: 600px;
+      /* width: 600px; */
       height: 375px;
     }
   

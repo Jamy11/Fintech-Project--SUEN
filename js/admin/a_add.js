@@ -1,60 +1,3 @@
-//admin login js start
-
-function loginValidation()
-{
-    let obj1 = checkUsername_login();
-    let obj2 = checkPassword_login();
-
-    if(obj1 == true && obj2 ==true)
-    {
-        return true;
-    }
-    else
-    {
-        alert('Please Fill the form.');
-        return false;
-    }
-
-    
-}
-function checkUsername_login()
-{
-    let obj = document.getElementById('admin_uname').value;
-
-
-    if(obj != '')
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
-
-}
-
-function checkPassword_login()
-{
-    let obj = document.getElementById('admin_pass').value;
-
-    
-    if(obj != '')
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
-//admin login js end
-
-
-
-
-
-
-
-//admin add user start
 
 function checkAddName()
 {
@@ -196,17 +139,21 @@ function formValidation()
    
 
 
-    // if(obj1==true && obj2==true && obj3==true && obj4==true && obj4==true && obj5==true && obj6==true && obj7==true)
-    // {
-    //     alert('Ajex uncomplete');
-    //     return true;
-    // }
-    // else
-    // {
-    //     
-    // }
-    alert('On going work');
-    return false;
+    if(name==true && email==true && username==true && password==true && con_password==true && gender==true && dob==true)
+    {
+        alert('Ajex uncomplete');
+        document.getElementById('msg').innerHTML = 'Hello';
+        // setTimeout(10000);
+        // document.getElementById('msg').innerHTML = '';
+        document.getElementById('form').reset();
+        return true;
+    }
+    else
+    {
+        alert('On going work');
+        return false;
+    }
+    
     
     
 }
@@ -215,4 +162,3 @@ function test()
     alert('test');
     return false;
 }
-//admin add user start

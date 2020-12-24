@@ -48,38 +48,45 @@
                     <li><a href="../logout.php">Log Out</a></li>
                 </ul>                            
             </td>
+
+
             <td>
             <h1 align='center'>Registration</h1>
+            <!-- method="POST" action="../../php/admin/adRegistrationCheck.php" -->
+            <!-- onsubmit='return formValidation()' -->
     <center>
-        <form method="POST" action="../../php/admin/adRegistrationCheck.php">
+        <form id='form'>
                 <table>
                     <tr>
                         <td>Name</td>
-                        <td><input type="text" name="name" id=""></td>
+                        <td><input type="text" name="name" id="ad_add_name"></td>
+                        
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="text" name="email"></td>
+                        <td><input type="text" name="email" id='ad_add_email' onkeyup='checkAddEmail()'></td>
+                        <td id='emailDiv'>
+                        </td>
                     </tr>
                     <tr>
                         <td>User Name</td>
-                        <td><input type="text" name='user_name'></td>
+                        <td><input type="text" name='user_name' id='ad_add_username'></td>
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="password" name="password" id=""></td>
+                        <td><input type="password" name="password" id="ad_add_password"></td>
                     </tr>
                     <tr>
                         <td>Confirm password</td>
-                        <td><input type="password" name="con_pas" id=""></td>
+                        <td><input type="password" name="con_pas" id="ad_add_con_pas"></td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <fieldset>
                                 <legend>Gender</legend>
-                                <input type="radio" name="gen" id="" value="Male">Male
-                                <input type="radio" name="gen" id="" value="Female">Female
-                                <input type="radio" name="gen" id="" value="Other">Other
+                                <input type="radio" name="gen" id="ad_add_gen1" value="Male">Male
+                                <input type="radio" name="gen" id="ad_add_gen2" value="Female">Female
+                                <input type="radio" name="gen" id="ad_add_gen3" value="Other">Other
                             </fieldset>
                         </td>
                     </tr>
@@ -87,18 +94,22 @@
                         <td colspan="2">
                             <fieldset>
                                 <legend>Date Of Birth</legend>
-                                <input type="date" name="dob" id="">
+                                <input type="date" name="dob" id="ad_add_dob">
                             </fieldset>
 
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" name="submit" id="">
+                            <input type="button" name="submit" value='Submit' onclick='return formValidation()'>
                             <button type="reset">Reset</button>
                         </td>
 
                     </tr>
+                    
+                        <div id='msg'>
+                        </div>
+                    
                     
                 </table>
         </form>
@@ -108,10 +119,11 @@
             </td>
         </tr>
     </table>
+    <script type='text/javascript' src="../../js/admin/a_add.js"></script>
 </body>
 </html>
 
-<?php
+<!-- <?php
 
     if(isset($_SESSION['reg_msg']))
     {
@@ -139,7 +151,7 @@
     }
     
 
-?>
+?> -->
 
 <?php
     include_once('../footer.php');

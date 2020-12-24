@@ -17,7 +17,7 @@
             Logged in as 
             <a href=""><?php 
             
-            echo $_SESSION['adName'];
+            echo $_SESSION['admin_username'];
             ?></a>
             | <a href="../logout.php">Log-Out</a>|
         </td>
