@@ -70,7 +70,7 @@
                     </tr>
                     <tr>
                         <td>User Name</td>
-                        <td><input type="text" name='user_name' id='ad_add_username' onkeyup='checkAddUsername()'></td>
+                        <td><input type="text" name='user_name' id='ad_add_username' onkeyup='checkUsenameUniqe()'></td>
                         <td id='usernameDiv'>
                         </td>
                         

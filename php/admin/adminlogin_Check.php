@@ -46,7 +46,7 @@
         }
         else
         {
-            header();
+            //header();
         }
     }
     else

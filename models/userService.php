@@ -116,7 +116,7 @@ function checkUniqeUSername($username){
     return false;
 }
 
-function insertIntoAdmin(){
+function insertIntoAdmin($user){
 
 	$conn = getConnection();
 	$sql = "INSERT INTO admin

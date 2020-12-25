@@ -13,36 +13,46 @@
     }
 
 
-    
-
-    if(isset($_POST['data']))
+    if(isset($_POST['check_username']))
     {
-       
-
-    
-        
-        $name='';
-        if(!empty($_POST['name']))
+        if(checkUniqeUSername($_POST['check_username']))
         {
-            $name = $_POST['name'];
+            echo 'exist';
         }
-        else{
-            //header('location: registration.php?msg=null_name');
-            $name='';
-        }
+    }
 
 
 
 
 
-        $email = $_POST["email"];
+    if(isset($_POST['add']))
+    {
+        $data  = $_POST['add'];
+        $obj = json_decode($data);
+        
+        $name = $obj->name;
+        $email = $obj->email;
+        $n = $obj->username;
+        $password = $obj->password;
+        $con_pass = $obj->con_password;
+        $gen = $obj->gender;
+        $dobb = $obj->dob;
+
+        // echo $name;
+        // echo $email;
+        // echo $n;
+        // echo $password;
+        // echo $con_pass;
+        // echo $gen;
+        // echo $dobb;
+
         $atSign = strpos($email, "@");
         $lastDot = strripos($email, ".");
-        if(!empty($_POST["email"]))
+        if($email != '')
         {
             if($atSign > 0 && $email[$atSign+1] != "." && $lastDot > $atSign+1 && !strpos($email, " ") && !strpos($email, "..") && strlen($email) > ($lastDot+1))
             {
-                $email = $_POST['email'];
+                //$email = $_POST['email'];
             }
             else
             {
@@ -60,9 +70,6 @@
         }
         
         
-        
-
-        $n = $_POST['user_name'];
         $un ='';
         $count=1;
         if(!empty($n))
@@ -117,10 +124,9 @@
         
 
 
-        $password='';
-        if($_POST['password']==$_POST['con_pas'])
+        if($password==$con_pass)
         {
-            $password = $_POST['password'];
+            
         }
         else
         {
@@ -131,36 +137,29 @@
 
 
 
-        if(isset($_POST['gen']))
+
+
+
+
+        $user_type ='Admin';
+        $pic = 'null';
+        if($name!="" && $email!='' && strlen($un)==$count && $password!='' && $gen!='' && $dobb !='' && $user_type !='' && $pic !='')
         {
-            $gen =  $_POST['gen'];
-            //echo $gen;
+            $user = ['a_name'=> $name, 'a_email'=>$email,
+                    'a_username'=> $un, 'a_password'=>$password,
+                    'a_gender'=> $gen, 'a_dob'=>$dobb,
+                    'a_usertype'=> $user_type, 'a_picture'=>$pic];
+
+            if(insertIntoAdmin($user))
+            {
+                echo 'Done';
+            }
+            else{
+                echo 'Admin Adding Failed';
+            }
         }
         else
         {
-            //echo "please Select gender";
-            //header('location: registration.php?msg=null_gen');
-            $gen ='';
+            echo 'Php verification failed';
         }
-
-
-
-        if(!empty($_POST['dob']))
-        {
-            $dobb = $_POST['dob'];
-            //echo $_POST['dob'];
-
-        }
-        else{
-            //echo 'Please Set dob';
-            //header('location: registration.php?msg=null_dob');
-            $dobb ='';
-        }
-
-
-        $user ='Admin';
     }
-
-
-
-?>
