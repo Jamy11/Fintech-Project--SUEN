@@ -64,13 +64,16 @@
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="text" name="email" id='ad_add_email' onkeyup='checkAddEmail()'></td>
+                        <td><input type="text" name="email" id='ad_add_email' onkeyup='checkEmailUniqe()'></td>
                         <td id='emailDiv'>
                         </td>
                     </tr>
                     <tr>
                         <td>User Name</td>
-                        <td><input type="text" name='user_name' id='ad_add_username'></td>
+                        <td><input type="text" name='user_name' id='ad_add_username' onkeyup='checkAddUsername()'></td>
+                        <td id='usernameDiv'>
+                        </td>
+                        
                     </tr>
                     <tr>
                         <td>Password</td>
@@ -106,9 +109,15 @@
                         </td>
 
                     </tr>
+                    <tr>
                     
-                        <div id='msg'>
-                        </div>
+                        <td>
+                            <div id='msg'>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                       
                     
                     
                 </table>

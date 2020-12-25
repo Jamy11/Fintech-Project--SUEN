@@ -46,14 +46,64 @@ function checkAddEmail()
 function checkAddUsername()
 {
     let obj = document.getElementById('ad_add_username').value;
+
+    let un = obj.split('');
+    let user_name ='';
+
+    let count = 0;
+    
+
     if(obj != '')
     {
+        if(obj.length > 1)
+        {
+            
+            for(let i =0;i<un.length;i++)
+            {
+                if((un[i] >= 'A' && un[i] <= 'z') || un[i] == '.' || un[i] == '-')
+                {
+                    user_name += un[i];
+                    document.getElementById('usernameDiv').innerHTML = user_name;
+                    count +=1;
+                }
+                else
+                {
+                    user_name = '';
+                    document.getElementById('usernameDiv').innerHTML = 'Invalid';
+                    break;
+                    //return false;
+                }
+            }
+        }
+        else
+        {
+
+            //echo "Please use 1st letter betweeen A-z";
+            //header('location: registration.php?msg=style_error');
+            user_name = '';
+            return false;
+            //break;
+        }
+    }
+    else
+    {
+        user_name = ''
+        return false;
+        // /break;
+    }
+    if(user_name.length == count)
+    {
+        console.log('true');
         return true;
     }
     else
     {
+        console.log('false');
         return false;
     }
+
+
+    
 }
 
 function checkAddPassword()
@@ -127,6 +177,90 @@ function checkAddDob()
     }
 }
 
+
+let check_email;
+function checkEmailUniqe()
+{
+    let mailcheck = checkAddEmail();
+    if(mailcheck)
+    {
+        let ue = document.getElementById('ad_add_email').value;
+
+        let xhttp = new XMLHttpRequest();
+    
+        xhttp.open('POST', '../../ajax/admin/add_admin.php', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                //document.getElementById('emailDiv').innerHTML= this.responseText;
+                if(this.responseText == 'exist')
+                {
+                    document.getElementById('emailDiv').innerHTML = 'Email Exist';
+                    //console.log('email ase');
+                    check_email = false;
+                }
+                else{
+                    document.getElementById('emailDiv').innerHTML = 'Ready to use';
+                    //console.log('done');
+                    check_email = true;
+
+                }
+            }
+        }
+        xhttp.send("email="+ue);
+    }
+    else
+    {
+        check_email = false;
+    }
+    
+
+}
+
+
+
+//username 
+let check_un;
+function checkUsenameUniqe()
+{
+    let usernamecheck = checkAddUsername();
+    if(usernamecheck)
+    {
+        let ue = document.getElementById('ad_add_username').value;
+
+        let xhttp = new XMLHttpRequest();
+    
+        xhttp.open('POST', '../../ajax/admin/add_admin.php', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                //document.getElementById('emailDiv').innerHTML= this.responseText;
+                if(this.responseText == 'exist')
+                {
+                    document.getElementById('emailDiv').innerHTML = 'Username Exist';
+                    //console.log('email ase');
+                    check_un = false;
+                    
+                }
+                else{
+                    document.getElementById('emailDiv').innerHTML = 'Ready to use';
+                    //console.log('done');
+                    check_un = true;
+
+                }
+            }
+        }
+        xhttp.send("check_username="+ue);
+    }
+    else
+    {
+        check_un = false;
+    }
+    
+
+}
+
+
 function formValidation()
 {
     let name = checkAddName();
@@ -146,6 +280,7 @@ function formValidation()
         // setTimeout(10000);
         // document.getElementById('msg').innerHTML = '';
         document.getElementById('form').reset();
+        document.getAnimations('msg').delay(800).fadeOut(800);
         return true;
     }
     else
