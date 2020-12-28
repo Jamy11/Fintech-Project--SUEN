@@ -311,7 +311,11 @@ function formValidation()
                 'gender' : gender_val,
                 'dob' : dob_val
             }
-            
+
+            check_email = false;
+            check_un = false;
+            gender_val='';
+            dob_val='';
             
             let data = JSON.stringify(formdata);
             
