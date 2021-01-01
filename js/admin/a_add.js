@@ -356,7 +356,8 @@ function formValidation()
             xhttp.send("add="+data);
             
             
-            
+            document.getElementById('emailDiv').innerHTML = '';
+            document.getElementById('usernameDiv').innerHTML = '';
             
             
             
@@ -383,3 +384,4 @@ function formValidation()
     }
     
 }
+

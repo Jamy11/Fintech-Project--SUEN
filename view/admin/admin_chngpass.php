@@ -113,35 +113,5 @@
 
 
 <?php
-
-    if(isset($_SESSION['reg_msg']))
-    {
-        if( $_SESSION['reg_msg'] == 'User Name exists.')
-        {
-            echo '<script language="javascript">alert("User Name exists.")</script>';
-        }
-
-        elseif($_SESSION['reg_msg'] == 'Registraion Complete')
-        {
-            echo '<script language="javascript">alert("Registraion Complete.")</script>';
-        }
-
-        elseif($_SESSION['reg_msg'] == 'Fill Up the Form')
-        {
-            echo '<script language="javascript">alert("Fill Up the Form.")</script>';
-        }
-
-        elseif($_SESSION['reg_msg'] == 'Use Provided Link.')
-        {
-            echo '<script language="javascript">alert("Use Provided Link.")</script>';
-        }
-    
-        unset($_SESSION['reg_msg']);
-    }
-    
-
-?>
-
-<?php
     include_once('../footer.php');
 ?>

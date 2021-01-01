@@ -31,6 +31,7 @@
                 <ul>
                     <li><a href="admin.php">Admin Dashboard</a></li>
                     <li><a href="admin_edit.php">Edit Profile</a></li>
+                    <li><a href="admin_chngpass.php">Change Password</a></li>
                     <li><a href="admin_add.php">Add Admin</a></li>
                     <li><a href="admin_user_list.php">User List</a></li>
                     <li><a href="admin_admin_list.php">Admin List</a></li>
@@ -47,7 +48,7 @@
                    <!-- <li><a href="profile_change_pic.php">Change Profile Picture</a></li>-->
                    <!-- <li><a href="profile_change_pas.php">Change Password</a></li>-->
                     <li><a href="../logout.php">Log Out</a></li>
-                </ul>                               
+                </ul>             
             </td>
             <td>
             <h1 align='center'>Edit Profile</h1>
@@ -56,24 +57,28 @@
                 <table>
                     <tr>
                         <td>Name</td>
-                        <td><input type="text" name="name" id=""></td>
+                        <td><input type="text" name="name" id="a_u_name"></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="text" name="email"></td>
+                        <td><input type="email" name="email" id='a_u_email' onkeyup="updateEmail()"></td>
+                        <td>
+                            <div id="emailDiv">
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>User Name</td>
-                        <td><input type="text" name='user_name'></td>
+                        <td><input type="text" name='user_name' id='a_u_username'></td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>Password</td>
-                        <td><input type="password" name="password" id=""></td>
+                        <td><input type="password" name="password" id="a_u_pass"></td>
                     </tr>
                     <tr>
                         <td>Confirm password</td>
-                        <td><input type="password" name="con_pas" id=""></td>
-                    </tr>
+                        <td><input type="password" name="con_pas" id="a_u_conpass"></td>
+                    </tr> -->
                     
                     <tr>
                     </tr>
@@ -96,6 +101,7 @@
             </td>
         </tr>
     </table>
+    <script type='text/javascript' src="../../js/admin/a_update.js"></script>
 </body>
 </html>
 
