@@ -53,20 +53,11 @@
                 <center>
                     <form method="POST" action="../../php/admin/ad_addSupportCheck.php">
                         <table>
-                            <tr>
-                                <td>Name</td>
-                                <td><input type="text" name="name" id=""></td>
+                            <tr>]
+                                <td>Old Password</td>
                             </tr>
                             <tr>
-                                <td>Email</td>
-                                <td><input type="text" name="email"></td>
-                            </tr>
-                            <tr>
-                                <td>User Name</td>
-                                <td><input type="text" name='user_name'></td>
-                            </tr>
-                            <tr>
-                                <td>Password</td>
+                                <td>New Password</td>
                                 <td><input type="password" name="password" id=""></td>
                             </tr>
                             <tr>

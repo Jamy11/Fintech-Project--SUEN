@@ -52,8 +52,9 @@
             </td>
             <td>
             <h1 align='center'>Edit Profile</h1>
+            
     <center>
-        <form method="POST" action="../../php/admin/adeditprofile_Check.php">
+        <form method="POST" action="../../php/admin/ad_editprofile_Check.php" onsubmit='return updateUser()'>
                 <table>
                     <tr>
                         <td>Name</td>
@@ -61,15 +62,20 @@
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="email" name="email" id='a_u_email' onkeyup="updateEmail()"></td>
-                        <td>
+                        <td><input type="email" name="email" id='a_u_email' onkeyup="checkEmailUniqe()"></td>
+                        <td width="100px" style="color: red;">
                             <div id="emailDiv">
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>User Name</td>
-                        <td><input type="text" name='user_name' id='a_u_username'></td>
+                        <td><input type="text" name='user_name' id='a_u_username' onkeyup="checkUsenameUniqe()"></td>
+                        <td width="100px" style="color: red;">
+                            <div id='usernameDiv'>
+
+                            </div>
+                        </td>
                     </tr>
                     <!-- <tr>
                         <td>Password</td>
@@ -84,7 +90,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" name="submit" id="">
+                            <input type="submit" name="submit" value="Update User">
                             <button type="reset">Reset</button>
                         </td>
 
@@ -119,6 +125,12 @@
         {
             echo '<script language="javascript">alert("Fill Up the Form.")</script>';
         }
+
+        elseif($_SESSION['edi_msg'] == 'SQL error')
+        {
+            echo '<script language="javascript">alert("SQL error.")</script>';
+        }
+        
 
 
     

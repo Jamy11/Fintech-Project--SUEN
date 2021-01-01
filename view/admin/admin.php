@@ -54,7 +54,7 @@
                 </ul>             
             </td>
             <td>
-                <h1 align="center">Welcome <?php echo $_SESSION['admin_username'] ?> <br/>
+                <h1 align="center">Welcome <?php echo $userlist['name'] ?> <br/>
                 <h2>User name: <?php echo $userlist['username'] ?></h2>
 				<h2>Email: <?php echo $userlist['email'] ?></h2>
                 <h2>Gender: <?php echo $userlist['gender'] ?></h2>

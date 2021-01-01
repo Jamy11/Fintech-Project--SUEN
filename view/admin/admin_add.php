@@ -66,13 +66,13 @@
                     <tr>
                         <td>Email</td>
                         <td><input type="text" name="email" id='ad_add_email' onkeyup='checkEmailUniqe()'></td>
-                        <td id='emailDiv'>
+                        <td id='emailDiv' width="100px" style="color: red;">
                         </td>
                     </tr>
                     <tr>
                         <td>User Name</td>
                         <td><input type="text" name='user_name' id='ad_add_username' onkeyup='checkUsenameUniqe()'></td>
-                        <td id='usernameDiv'>
+                        <td id='usernameDiv' width="100px" style="color: red;">
                         </td>
                         
                     </tr>

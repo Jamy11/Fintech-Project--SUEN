@@ -332,6 +332,7 @@ function formValidation()
                     {
                         document.getElementById('msg').innerHTML = 'Adding complete';
                         //console.log('email ase');
+                        setTimeout(clearField,5000);
                         return true;
                         
                     }
@@ -339,12 +340,14 @@ function formValidation()
                     {
                         document.getElementById('msg').innerHTML = 'Adding failed';
                         //console.log('done');
+                        setTimeout(clearField,5000);
                         return false;
     
                     }
                     else{
                         document.getElementById('msg').innerHTML = 'Php Verification Failed';
                         //console.log('done');
+                        setTimeout(clearField,5000);
                         return false;
                     }
                     
@@ -360,16 +363,12 @@ function formValidation()
             document.getElementById('usernameDiv').innerHTML = '';
             
             
-            
-            
-            // alert('Ajex uncomplete');
-    
-            // document.getElementById('msg').innerHTML = 'Hello';
-            // // setTimeout(10000);
-            // // document.getElementById('msg').innerHTML = '';
+             
             document.getElementById('form').reset();
             // //document.getAnimations('msg').delay(800).fadeOut(800);
-             return true;
+            setTimeout(clearField,5000);
+            
+            return true;
         }
         else
         {
@@ -385,3 +384,7 @@ function formValidation()
     
 }
 
+function clearField()
+{
+    document.getElementById('msg').innerHTML = ' ';
+}

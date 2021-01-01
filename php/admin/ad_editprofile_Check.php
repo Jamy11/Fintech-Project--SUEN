@@ -1,4 +1,6 @@
 <?php
+    include_once('../../models/userService.php');
+
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
@@ -98,113 +100,27 @@
             //header('location: registration.php?msg=null_user_name');
             $un = '';
         }
-     
+
         
-
-
-        $password='';
-        if($_POST['password']==$_POST['con_pas'])
+        if($name!="" && $email!='' && strlen($un)==$count )
         {
-            $password = $_POST['password'];
-        }
-        else
-        {
-            //echo 'wrong password';
-            //header('location: registration.php?msg=wrong_pass');
-            $password='';
-        }
+            $username = $_SESSION['admin_username'];
 
-
-
-
-        $user ='Admin';
-        
-        if($name!="" && $email!='' && strlen($un)==$count && $password!='' && $user !='')
-        {
-
- 
-            // $_SESSION['reg_msg']='Registraion Complete';
-            // $admin = fopen("admin.txt","a");
-            // $add = $name.' '.$email.' '.$un.' '.$password.' '.$_SESSION['adGen'].' '.$_SESSION['adDate'].' '.$user;
-
-            $alldata = array();
-
-            $myfile = fopen("admin.txt","r");
+            $user =['name' => $name, 'email'=>$email, 'username' =>$un,'pun'=>$username];
             
+            $status = updateAdminInfo($user);
 
-            while($data = fgets($myfile))
+            if($status)
             {
-                if($data != '' )
-                {
-                    $alldata[] = $data;
-                }            
-                // $checkData = explode(" ",$data);
+                $_SESSION['admin_username'] = $un;
+                header('location: ../../view/admin/admin.php');
+            }
+            else
+            {
                 
-                // if($un == $checkData[2])
-                // {
-                //     $_SESSION['reg_msg']='User Name exists.';
-                //     header("location: ../../view/admin/admin_add.php");
-                //     exit;
-                // }
-                
+                $_SESSION['edi_msg']='SQL error';
+                header('location: ../../view/admin/admin_edit.php');
             }
-            // print_r($alldata);
-            // echo '<br>';
-            for($i =0;$i<count($alldata);$i++)
-            {
-                $test = explode(" ",$alldata[$i]);
-
-                if($_SESSION['adUserame'] == $test[2])
-                {
-                    //print_r($alldata[$i]);
-                    $match = $i;
-
-                }
-            }
-
-
-            $add = $name.' '.$email.' '.$un.' '.$password.' '. $_SESSION['adGen'].' '.$_SESSION['adDate'].' '.$user;
-            
-            $_SESSION['adName'] = $name;
-            $_SESSION['adEmail'] = $email;
-            $_SESSION['adUserame'] = $un;
-            $_SESSION['adPas'] = $password;
-
-            $alldata[$match] = $add;
-
-            //print_r($alldata);
-
-            $admin = fopen("admin.txt", "w");
-
-            for($i =0;$i<count($alldata);$i++)
-            {
-                fwrite($admin, $alldata[$i]."\r\n");
-            }
-            fclose($admin);
-            echo 'done';
-            // fclose($myfile); 
-            // $_SESSION['reg_msg']='Registraion Complete';
-            // $admin = fopen("admin.txt","a");
-            // 
-            // fwrite($admin, $add. " \r\n");
-        
-            // fclose($admin);
-            // header("location: ../../view/admin/admin_add.php");
-            // exit();
-
-
-            
-            
-            //fwrite($admin, $add. " \r\n");
-        
-            // fclose($admin);
-                        // echo 'comp';
-                        // $_SESSION['edi_msg']='Registraion Complete';
-            //header("location: ../../view/admin/admin_edit.php");
-                        //exit();
-
-           
-
 
         }
 

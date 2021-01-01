@@ -136,4 +136,25 @@ function insertIntoAdmin($user){
 	}
 }
 
+function updateAdminInfo($user)
+{
+	$conn = getConnection();
+	//$user =['name' => $name, 'email'=>$email, 'username' =>$un,'pun'=>$username];
+	$sql = "UPDATE admin SET name='{$user['name']}', email='{$user['email']}',
+	username='{$user['username']}' WHERE username='{$user['pun']}'";
+
+	$status = mysqli_query($conn,$sql);
+
+	if($status)
+	{
+		return true;
+	}
+	else
+    {
+        die("Error: ". mysqli_error($conn));
+    }
+
+    return false;
+}
+
 ?>
