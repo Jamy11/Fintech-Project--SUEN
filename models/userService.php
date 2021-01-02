@@ -180,4 +180,35 @@ function updateAdminPass($user)
     return false;
 }
 
+function getAllUser(){
+
+	$conn = getConnection();
+	$sql = "select * from admin";
+
+	$result = mysqli_query($conn, $sql);
+	$users = [];
+
+	while ($row = mysqli_fetch_assoc($result)) {
+		array_push($users, $row);
+	}
+
+	return $users;
+}
+
+function deleteUser($user)
+	{
+		//$value = $_GET['msg'];
+		$conn = getConnection();
+		$sql = "DELETE FROM admin WHERE username='$user'";
+		$status=mysqli_query($conn, $sql);
+		
+		if($status){
+			return true; 
+		}else{
+			return false;
+		}
+
+	}
+
+
 ?>

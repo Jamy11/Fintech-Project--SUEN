@@ -15,6 +15,8 @@
         header('location: adminlogin.php');
         exit;
     }
+    require_once('../../models/userService.php');
+    $userlist = getAllUser();
 ?>
 
 <?php
@@ -57,7 +59,36 @@
             </td>
             <td>
                 <h1>Admin List</h1>
-                <?php checkAdmin()?>
+                <table border="1"> 
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Username</td>
+                    <td>Gender</td>
+                    <td>Date Of Birth</td>
+                    <td>User Type</td>
+                    <td>Delete</td>
+                    <td>Edit</td>
+                </tr>
+
+                <?php for($i=0; $i< count($userlist); $i++){ 
+                    $un = $userlist[$i]['username'];
+                    ?>
+
+                    <tr>
+                        <td><?=$userlist[$i]['name']?></td>
+                        <td><?=$userlist[$i]['email']?></td>
+                        <td><?=$userlist[$i]['username']?></td>
+                        <td><?=$userlist[$i]['gender']?></td>
+                        <td><?=$userlist[$i]['dob']?></td>
+                        <td><?=$userlist[$i]['user_type']?></td>
+                        <td><a href="edit.php?msg=<?php echo urlencode($un)?>">Edit</a></td>
+                        <td><a href="../../php/admin/delete.php?msg=<?php echo urlencode($un)?>">Delete</a></td>
+                    </tr>
+                    
+                <?php } ?>
+
+                </table>    
 							
 							
 				</h3>
@@ -66,7 +97,20 @@
     </table>
 </body>
 </html>
+<?php
 
+    if(isset($_SESSION['dlt_msg']))
+    {
+
+        if($_SESSION['dlt_msg'] == 'User Deleted')
+        {
+            echo '<script language="javascript">alert("User Deleted.")</script>';
+        }
+    
+    
+        unset($_SESSION['dlt_msg']);
+    }
+?>
 <?php
     include_once('../footer.php');
 ?>
