@@ -14,7 +14,7 @@
     }
     require_once('../../models/userService.php');
     $userlist = searchUser($_SESSION['admin_username']);
-
+    $_SESSION['oldpass'] = $userlist['password'];
 
 ?>
 
@@ -66,6 +66,21 @@
     </table>
 </body>
 </html>
+
+<?php
+
+    if(isset($_SESSION['pass_error']))
+    {
+
+        if($_SESSION['pass_error'] == 'Complete')
+        {
+            echo '<script language="javascript">alert("Password Changed.")</script>';
+        }
+    
+    
+        unset($_SESSION['pass_error']);
+    }
+?>
 
 <?php
     include_once('../footer.php');

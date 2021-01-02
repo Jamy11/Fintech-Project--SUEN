@@ -48,44 +48,28 @@
                     <li><a href="../logout.php">Log Out</a></li>
                 </ul>             
             </td>
+            <!--  -->
             <td>
-                <h1 align="center">Add Support <br/></h1>
+                <h1 align="center">Change Password<br/></h1>
                 <center>
-                    <form method="POST" action="../../php/admin/ad_addSupportCheck.php">
+                    <form method="POST" action="../../php/admin/ad_chngpass.php" onsubmit="return passCheck()"> 
                         <table>
-                            <tr>]
+                            <tr>
                                 <td>Old Password</td>
+                                <td><input type="password" name="old_pass" id="old_pass"></td>
                             </tr>
                             <tr>
                                 <td>New Password</td>
-                                <td><input type="password" name="password" id=""></td>
+                                <td><input type="password" name="new_pass" id="new_pass"></td>
                             </tr>
                             <tr>
                                 <td>Confirm password</td>
-                                <td><input type="password" name="con_pas" id=""></td>
+                                <td><input type="password" name="con_pass" id="con_pass"></td>
                             </tr>
+                           
                             <tr>
                                 <td colspan="2">
-                                    <fieldset>
-                                        <legend>Gender</legend>
-                                        <input type="radio" name="gen" id="" value="Male">Male
-                                        <input type="radio" name="gen" id="" value="Female">Female
-                                        <input type="radio" name="gen" id="" value="Other">Other
-                                    </fieldset>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <fieldset>
-                                        <legend>Date Of Birth</legend>
-                                        <input type="date" name="dob" id="">
-                                    </fieldset>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <input type="submit" name="submit" id="">
+                                    <input type="submit" name="submit" id="submit">
                                     <button type="reset">Reset</button>
                                 </td>
 
@@ -99,9 +83,44 @@
             </td>
         </tr>
     </table>
+    <script type='text/javascript' src="../../js/admin/a_chngpass.js"></script>
 </body>
 </html>
 
+
+<?php
+
+    if(isset($_SESSION['pass_error']))
+    {
+
+        if($_SESSION['pass_error'] == 'Dont Match')
+        {
+            echo '<script language="javascript">alert("Password dont match.")</script>';
+        }
+
+        elseif($_SESSION['pass_error'] == 'Old Pass dont match')
+        {
+            echo '<script language="javascript">alert("Old password dont match.")</script>';
+        }
+
+        elseif($_SESSION['pass_error'] == 'Fill the form.')
+        {
+            echo '<script language="javascript">alert("Fill the form.")</script>';
+        }
+
+        elseif($_SESSION['pass_error'] == 'Sql Error.')
+        {
+            echo '<script language="javascript">alert("Sql Error.")</script>';
+        }
+        
+
+
+    
+        unset($_SESSION['pass_error']);
+    }
+    
+
+?>
 
 <?php
     include_once('../footer.php');
