@@ -4,7 +4,7 @@ require_once('../../models/userService.php');
 $username = $_GET['msg'];
 $active_status = $_GET['status'];
 
-if($active_status =='0')
+if($active_status =='Deactive')
 {
     $active_status = 'Active';
 }
