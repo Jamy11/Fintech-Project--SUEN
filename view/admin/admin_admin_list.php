@@ -110,6 +110,17 @@
     
         unset($_SESSION['dlt_msg']);
     }
+
+    if(isset($_SESSION['edit']))
+    {
+
+        if($_SESSION['edit'] == 'Edited')
+        {
+            echo '<script language="javascript">alert("Edit Complete.")</script>';
+        }
+
+        unset($_SESSION['edit']);
+    }
 ?>
 <?php
     include_once('../footer.php');

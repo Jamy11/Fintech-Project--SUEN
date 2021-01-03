@@ -196,19 +196,40 @@ function getAllUser(){
 }
 
 function deleteUser($user)
-	{
-		//$value = $_GET['msg'];
-		$conn = getConnection();
-		$sql = "DELETE FROM admin WHERE username='$user'";
-		$status=mysqli_query($conn, $sql);
-		
-		if($status){
-			return true; 
-		}else{
-			return false;
-		}
+{
+	//$value = $_GET['msg'];
+	$conn = getConnection();
+	$sql = "DELETE FROM admin WHERE username='$user'";
+	$status=mysqli_query($conn, $sql);
+	
+	if($status){
+		return true; 
+	}else
+    {
+        die("Error: ". mysqli_error($conn));
+    }
 
-	}
+    return false;
+
+}
+
+function editAdmin($user)
+{
+	$conn = getConnection();
+	$sql = "UPDATE admin SET name='{$user['name']}',
+	password='{$user['password']}' WHERE username = '{$user['username']}' ";
+
+	$status = mysqli_query($conn, $sql);
+	
+	if($status){
+		return true; 
+	}else
+    {
+        die("Error: ". mysqli_error($conn));
+    }
+
+    return false;
+}
 
 
 ?>
