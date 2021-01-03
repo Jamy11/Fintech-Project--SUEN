@@ -74,6 +74,8 @@
 
                 <?php for($i=0; $i< count($userlist); $i++){ 
                     $un = $userlist[$i]['username'];
+                    $status =$userlist[$i]['active_status'];
+                    $user = ['username'=>$un,'active_status' =>$status];
                     ?>
 
                     <tr>
@@ -83,7 +85,7 @@
                         <td><?=$userlist[$i]['gender']?></td>
                         <td><?=$userlist[$i]['acc_type']?></td>
                         <td><?=$userlist[$i]['active_status']?></td>
-                        <td><a href="../../php/admin/.php?msg=<?php echo urlencode($un)?>&status=<?php echo urlencode($un)?>">
+                        <td><a href="../../php/admin/ad_changeUser.php?msg=<?php echo urlencode($un)?>&&status=<?php echo urlencode($status)?>">
                         Change</a></td>
                         <td><a href="edit-user.php?msg=<?php echo urlencode($un)?>">Edit</a></td>
                         <td><a href="../../php/admin/delete_user.php?msg=<?php echo urlencode($un)?>">Delete</a></td>
@@ -103,16 +105,16 @@
 
 <?php
 
-    if(isset($_SESSION['dlt_msg_user']))
+    if(isset($_SESSION['chng_msg_user']))
     {
 
-        if($_SESSION['dlt_msg_user'] == 'User Deleted')
+        if($_SESSION['chng_msg_user'] == 'Changed')
         {
-            echo '<script language="javascript">alert("User Deleted.")</script>';
+            echo '<script language="javascript">alert("Active Status Changed.")</script>';
         }
     
     
-        unset($_SESSION['dlt_msg_user']);
+        unset($_SESSION['chng_msg_user']);
     }
 
     if(isset($_SESSION['edit_user']))

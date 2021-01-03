@@ -285,4 +285,22 @@ function editUser($user)
     return false;
 }
 
+function changeActivestatusUser($user)
+{
+	$conn = getConnection();
+	$sql = "UPDATE user SET active_status='{$user['active_status']}'
+	WHERE username = '{$user['username']}' ";
+
+	$status = mysqli_query($conn, $sql);
+	
+	if($status){
+		return true; 
+	}else
+    {
+        die("Error: ". mysqli_error($conn));
+    }
+
+    return false;
+}
+
 ?>
