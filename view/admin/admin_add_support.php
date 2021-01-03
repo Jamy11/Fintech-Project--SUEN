@@ -47,46 +47,27 @@
             <td>
                 <h1 align="center">Add Support <br/></h1>
                 <center>
-                    <form method="POST" action="../../php/admin/ad_addSupportCheck.php">
+                    <form method="POST" action="../../php/admin/ad_addSupportCheck.php" onsubmit="return formValidation()">
                         <table>
                             <tr>
                                 <td>Name</td>
-                                <td><input type="text" name="name" id=""></td>
+                                <td><input type="text" name="name" id="name"></td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td><input type="text" name="email"></td>
+                                <td><input type="text" name="email" id='email' onkeyup="checkSuppEmail()"></td>
+                                <td id='emailDiv' width="100px" style="color: red;">
+                                </td>
                             </tr>
                             <tr>
                                 <td>User Name</td>
-                                <td><input type="text" name='user_name'></td>
+                                <td><input type="text" name='user_name' id='username' onkeyup="checkSuppUsername()"></td>
+                                <td id='usernameDiv' width="100px" style="color: red;">
+                                </td>
                             </tr>
                             <tr>
                                 <td>Password</td>
-                                <td><input type="password" name="password" id=""></td>
-                            </tr>
-                            <tr>
-                                <td>Confirm password</td>
-                                <td><input type="password" name="con_pas" id=""></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <fieldset>
-                                        <legend>Gender</legend>
-                                        <input type="radio" name="gen" id="" value="Male">Male
-                                        <input type="radio" name="gen" id="" value="Female">Female
-                                        <input type="radio" name="gen" id="" value="Other">Other
-                                    </fieldset>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <fieldset>
-                                        <legend>Date Of Birth</legend>
-                                        <input type="date" name="dob" id="">
-                                    </fieldset>
-
-                                </td>
+                                <td><input type="password" name="password" id="password"></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -104,6 +85,7 @@
             </td>
         </tr>
     </table>
+    <script type='text/javascript' src="../../js/admin/a_addSupport.js"></script>
 </body>
 </html>
 
@@ -117,7 +99,7 @@
             echo '<script language="javascript">alert("User Name exists.")</script>';
         }
 
-        elseif($_SESSION['reg_msg'] == 'Registraion Complete')
+        elseif($_SESSION['reg_msg'] == 'Done')
         {
             echo '<script language="javascript">alert("Registraion Complete.")</script>';
         }

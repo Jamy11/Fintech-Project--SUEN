@@ -318,4 +318,23 @@ function getAllSupport(){
 	return $users;
 }
 
+function insertIntoSupport($user){
+
+	$conn = getConnection();
+	$sql = "INSERT INTO support
+	VALUES ('{$user['name']}', '{$user['username']}','{$user['email']}', 
+	'{$user['password']}' )";
+
+	$status = mysqli_query($conn,$sql);
+
+	if($status)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 ?>

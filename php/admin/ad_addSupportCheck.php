@@ -2,6 +2,7 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+    require_once('../../models/userService.php');
     if(isset($_POST['submit']))
     {
 
@@ -103,79 +104,26 @@
 
 
         $password='';
-        if($_POST['password']==$_POST['con_pas'])
-        {
-            $password = $_POST['password'];
-        }
-        else
-        {
-            //echo 'wrong password';
-            //header('location: registration.php?msg=wrong_pass');
-            $password='';
-        }
+       
+        $password = $_POST['password'];
+       
 
-
-
-        if(isset($_POST['gen']))
-        {
-           $gen =  $_POST['gen'];
-            //echo $gen;
-        }
-        else
-        {
-            //echo "please Select gender";
-            //header('location: registration.php?msg=null_gen');
-            $gen ='';
-        }
-
-
-
-        if(!empty($_POST['dob']))
-        {
-            $dobb = $_POST['dob'];
-            //echo $_POST['dob'];
-
-        }
-        else{
-            //echo 'Please Set dob';
-            //header('location: registration.php?msg=null_dob');
-            $dobb ='';
-        }
-
-
-        $user ='Support';
-        
-        if($name!="" && $email!='' && strlen($un)==$count && $password!='' && $gen!='' && $dobb !='' && $user !='')
+        if($name!="" && $email!='' && strlen($un)==$count && $password!='' )
         {
 
-            $myfile = fopen("support.txt","r");
+            $user = ['name'=> $name, 'email'=>$email,
+                    'username'=> $un, 'password'=>$password];
 
-            while($data = fgets($myfile))
+            if(insertIntoSupport($user))
             {
-                $checkData = explode(" ",$data);
-                
-                if($un == $checkData[2])
-                {
-                    $_SESSION['reg_msg']='User Name exists.';
-                    header("location: ../../view/admin/admin_add_support.php");
-                    exit;
-                }
-                
+                $_SESSION['reg_msg']='Done';
+                header("location: ../../view/admin/admin_add_support.php");
+                exit;
             }
-        
-            fclose($myfile); 
-            $_SESSION['reg_msg']='Registraion Complete';
-            $admin = fopen("support.txt","a");
-            $add = $name.' '.$email.' '.$un.' '.$password.' '.$gen.' '.$dobb.' '.$user;
-            fwrite($admin, $add. " \r\n");
-        
-            fclose($admin);
-            header("location: ../../view/admin/admin_add_support.php");
-            exit();
-
+            else{
+                echo 'Admin Adding Failed';
+            }
            
-
-
         }
 
 
