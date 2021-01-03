@@ -15,6 +15,8 @@
         header('location: adminlogin.php');
         exit;
     }
+    require_once('../../models/userService.php');
+    $userlist = getAllUser();
 ?>
 
 <?php
@@ -57,7 +59,39 @@
             </td>
             <td>
                 <h1>User List</h1>
-                <?php checkUser()?>
+                <table border="1"> 
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Username</td>
+                    <td>Gender</td>
+                    <td>User Type</td>
+                    <td>Active Status</td>
+                    <td>Change Active Status</td>
+                    <td>Delete</td>
+                    <td>Edit</td>
+                </tr>
+
+                <?php for($i=0; $i< count($userlist); $i++){ 
+                    $un = $userlist[$i]['username'];
+                    ?>
+
+                    <tr>
+                        <td><?=$userlist[$i]['name']?></td>
+                        <td><?=$userlist[$i]['email']?></td>
+                        <td><?=$userlist[$i]['username']?></td>
+                        <td><?=$userlist[$i]['gender']?></td>
+                        <td><?=$userlist[$i]['acc_type']?></td>
+                        <td><?=$userlist[$i]['active_status']?></td>
+                        <td><a href="../../php/admin/.php?msg=<?php echo urlencode($un)?>&&status=<?php echo urlencode($un)?>">
+                        Change</a></td>
+                        <td><a href="edit.php?msg=<?php echo urlencode($un)?>">Edit</a></td>
+                        <td><a href="../../php/admin/delete_user.php?msg=<?php echo urlencode($un)?>">Delete</a></td>
+                    </tr>
+                    
+                <?php } ?>
+
+                </table>    
 							
 							
 				</h3>
@@ -66,6 +100,33 @@
     </table>
 </body>
 </html>
+
+<?php
+
+    if(isset($_SESSION['dlt_msg_user']))
+    {
+
+        if($_SESSION['dlt_msg_user'] == 'User Deleted')
+        {
+            echo '<script language="javascript">alert("User Deleted.")</script>';
+        }
+    
+    
+        unset($_SESSION['dlt_msg_user']);
+    }
+
+    if(isset($_SESSION['edit']))
+    {
+
+        if($_SESSION['edit'] == 'Edited')
+        {
+            echo '<script language="javascript">alert("Edit Complete.")</script>';
+        }
+
+        unset($_SESSION['edit']);
+    }
+?>
+
 
 <?php
     include_once('../footer.php');

@@ -16,7 +16,7 @@
         exit;
     }
     require_once('../../models/userService.php');
-    $userlist = getAllUser();
+    $userlist = getAllAdmin();
 ?>
 
 <?php

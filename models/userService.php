@@ -180,7 +180,7 @@ function updateAdminPass($user)
     return false;
 }
 
-function getAllUser(){
+function getAllAdmin(){
 
 	$conn = getConnection();
 	$sql = "select * from admin";
@@ -195,7 +195,7 @@ function getAllUser(){
 	return $users;
 }
 
-function deleteUser($user)
+function deleteAdmin($user)
 {
 	//$value = $_GET['msg'];
 	$conn = getConnection();
@@ -231,5 +231,39 @@ function editAdmin($user)
     return false;
 }
 
+function getAllUser(){
+
+	$conn = getConnection();
+	$sql = "select * from user";
+
+	$result = mysqli_query($conn, $sql);
+	$users = [];
+
+	while ($row = mysqli_fetch_assoc($result)) {
+		array_push($users, $row);
+	}
+
+	return $users;
+}
+
+
+
+function deleteUser($user)
+{
+	//$value = $_GET['msg'];
+	$conn = getConnection();
+	$sql = "DELETE FROM user WHERE username='$user'";
+	$status=mysqli_query($conn, $sql);
+	
+	if($status){
+		return true; 
+	}else
+    {
+        die("Error: ". mysqli_error($conn));
+    }
+
+    return false;
+
+}
 
 ?>
