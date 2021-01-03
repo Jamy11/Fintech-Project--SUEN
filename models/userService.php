@@ -266,4 +266,23 @@ function deleteUser($user)
 
 }
 
+function editUser($user)
+{
+	$conn = getConnection();
+	$sql = "UPDATE user SET name='{$user['name']}',
+	password='{$user['password']}', email='{$user['email']}' 
+	WHERE username = '{$user['username']}' ";
+
+	$status = mysqli_query($conn, $sql);
+	
+	if($status){
+		return true; 
+	}else
+    {
+        die("Error: ". mysqli_error($conn));
+    }
+
+    return false;
+}
+
 ?>

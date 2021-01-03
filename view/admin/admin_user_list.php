@@ -83,9 +83,9 @@
                         <td><?=$userlist[$i]['gender']?></td>
                         <td><?=$userlist[$i]['acc_type']?></td>
                         <td><?=$userlist[$i]['active_status']?></td>
-                        <td><a href="../../php/admin/.php?msg=<?php echo urlencode($un)?>&&status=<?php echo urlencode($un)?>">
+                        <td><a href="../../php/admin/.php?msg=<?php echo urlencode($un)?>&status=<?php echo urlencode($un)?>">
                         Change</a></td>
-                        <td><a href="edit.php?msg=<?php echo urlencode($un)?>">Edit</a></td>
+                        <td><a href="edit-user.php?msg=<?php echo urlencode($un)?>">Edit</a></td>
                         <td><a href="../../php/admin/delete_user.php?msg=<?php echo urlencode($un)?>">Delete</a></td>
                     </tr>
                     
@@ -115,15 +115,15 @@
         unset($_SESSION['dlt_msg_user']);
     }
 
-    if(isset($_SESSION['edit']))
+    if(isset($_SESSION['edit_user']))
     {
 
-        if($_SESSION['edit'] == 'Edited')
+        if($_SESSION['edit_user'] == 'Edited')
         {
             echo '<script language="javascript">alert("Edit Complete.")</script>';
         }
 
-        unset($_SESSION['edit']);
+        unset($_SESSION['edit_user']);
     }
 ?>
 
