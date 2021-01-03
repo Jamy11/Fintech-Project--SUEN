@@ -37,14 +37,10 @@
                     <li><a href="admin_admin_list.php">Admin List</a></li>
                     <li><a href="admin_support_list.php">Support List</a></li>
                     <li><a href="admin_user_request.php">User Request</a></li>
-                    <li><a href="admin_change_user_details.php">Change User Details</a></li>
-                    <li><a href="admin_deactivate_user.php">Deactivate User</a></li>
-                    <li><a href="admin_delete_user.php">Delete User</a></li>
                     <li><a href="admin_add_support.php">Add Support</a></li>
                     <li><a href="admin_check_payment history.php">Check Payment History</a></li>
                     <li><a href="admin_link_bank.php">Link Bank</a></li>
                     <li><a href="admin_chat.php">Chat</a></li>
-                    <li><a href="admin_contact_user.php">Contact Users</a></li>
                    <!-- <li><a href="profile_change_pic.php">Change Profile Picture</a></li>-->
                    <!-- <li><a href="profile_change_pas.php">Change Password</a></li>-->
                     <li><a href="../logout.php">Log Out</a></li>
