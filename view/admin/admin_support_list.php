@@ -15,6 +15,8 @@
         header('location: adminlogin.php');
         exit;
     }
+    require_once('../../models/userService.php');
+    $userlist = getAllSupport();
 ?>
 
 <?php
@@ -57,8 +59,32 @@
             </td>
             <td>
                 <h1>Support List</h1>
-                <?php checkSupport()?>
-							
+                <table border="1"> 
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Username</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                    
+                </tr>
+
+                <?php for($i=0; $i< count($userlist); $i++){ 
+                    $un = $userlist[$i]['username'];
+                    ?>
+
+                    <tr>
+                        <td><?=$userlist[$i]['name']?></td>
+                        <td><?=$userlist[$i]['email']?></td>
+                        <td><?=$userlist[$i]['username']?></td>
+                        <td><a href="edit.php?msg=<?php echo urlencode($un)?>">Edit</a></td>
+                        <td><a href="../../php/admin/delete.php?msg=<?php echo urlencode($un)?>">Delete</a></td>
+                    </tr>
+                    
+                <?php } ?>
+
+                  
+                </table>          
 							
 				</h3>
             </td>
